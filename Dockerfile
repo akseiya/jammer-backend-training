@@ -1,19 +1,17 @@
-# Eve 
-
-FROM python:3.7
+FROM python:3.8
 ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
 LABEL org.label-schema.build-date=$BUILD_DATE \
-    org.label-schema.name="Docker Eve" \
-    org.label-schema.description="Docker image for Python Eve" \
-    org.label-schema.url="https://github.com/alekspankov/docker-eve-python" \
+    org.label-schema.name="Jammer back-end" \
+    org.label-schema.description="Docker image for seed of Jammer's backend" \
+    org.label-schema.url="https://github.com/akseiya/jammer-backend" \
     org.label-schema.vcs-ref=$VCS_REF \
-    org.label-schema.vcs-url="https://github.com/alekspankov/docker-eve-python" \
-    org.label-schema.vendor="Pytonowcy" \
+    org.label-schema.vcs-url="https://github.com/akseiya/jammer-backend" \
+    org.label-schema.vendor="Wonsze" \
     org.label-schema.version=$VERSION \
     org.label-schema.schema-version="1.0"
-LABEL maintainer="Pytonowcy"
+LABEL maintainer="Wonsze"
 
 WORKDIR /usr/src/app
 COPY requirements.txt ./
