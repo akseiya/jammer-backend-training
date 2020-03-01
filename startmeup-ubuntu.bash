@@ -16,7 +16,7 @@ else
     sudo usermod -a -G docker uriel
     echo "
 Group membership in Linux does not normally take effect immediately.
-I'm now launching a shell where you are a member of 'docker' group.
+I'm running 'newgrp - docker'.
 This can mess with your RVM and other environment managers.
 
 If Jammer Backend containers don't spin up anyway, you might have to
