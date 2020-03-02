@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+case "$1" in
+    put)    verb="-X PUT";    shift;;
+    delete) verb="-X DELETE"; shift;;
+esac
+
+path=$1
+shift
+
+if [ "$1" ]; then
+    data="-d \"$1\""
+    shift
+fi
+
+curl -sS $verb $data                     \
+     -H 'Content-Type: application/json' \
+     "$@"                                \
+     "http://0.0.0.0:5000/$path" | json_pp

@@ -13,9 +13,10 @@ and a morph of [Alex Pankov's Eve Dockerfile][alexdock] for its own box.
 - [Docker](https://docs.docker.com/) 
 - [Docker Compose](https://docs.docker.com/compose/)
 
-Both can be installed on Ubuntu by the included [startmeup script](./startmeup-ubuntu.bash).
-Sadly, if you were not previously a member of the `docker` group, there will be unavoidable
-pain cause by how credentials are propagated in Ubuntu.
+Both can be installed on Ubuntu by the included
+[startmeup script](./bin/startmeup-ubuntu).
+
+Sadly, if you were not previously a member of the `docker` group, there will be unavoidable pain cause by how credentials are propagated in Ubuntu.
 
 If you're not on Ubuntu, you have WSL or some other bad things happen,
 check [special cases](#special).
