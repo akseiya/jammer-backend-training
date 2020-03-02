@@ -21,4 +21,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Gunicorn start in current directory, so app/app is app.app.
 # It also defaults WSGI callable name as `application`.
-CMD ["gunicorn", "--reload", "-b 0.0.0.0:5000", "app.app:app"]
+CMD ["gunicorn", "--reload", "--log-level=debug", "-b 0.0.0.0:5000", "app.app:app"]
