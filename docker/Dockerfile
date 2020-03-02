@@ -1,3 +1,6 @@
+# "Production" image, performs a copy of source
+# into the container when it's built
+
 FROM python:3.8
 ARG BUILD_DATE
 ARG VCS_REF
@@ -19,4 +22,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./app/* ./
 
-CMD ["python", "./app/app.py"]
+CMD ["gunicorn", "-b 0.0.0.0:5000", "app.app:app"]
+

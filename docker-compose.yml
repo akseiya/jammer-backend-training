@@ -4,7 +4,7 @@
 version: '3'
 services:
     web:
-        image: akseiya/jammer-backend
+        image: akseiya/jammer-backend-dev
         ports:
             - "5000:5000"
         volumes:
