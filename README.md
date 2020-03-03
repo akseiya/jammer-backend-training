@@ -34,8 +34,23 @@ You can `curl http://0.0.0.0:5000/tadek` as soon as containers are started.
 App code volume is mounted live to the container and the app is run with 
 `gunicorn --max-requests=1` so that each manual debugging request reloads code.
 
+## toot.py
+
+[`toot`](./bin/toot.py) is a Python minitool for calling the API with
+input and output data specified in YAML.
+
+Input data for `POST` and `PUT` requests is read from `stdin`
+(press Ctrl+D in empty line to finish)
+
+#### Usage:
+
+```
+./bin/toot.py [POST|PUT|DELETE] PATH
+```
+
 ## durl
-[durl](./bin/durl) is a little wrapper for curl, preset to go to
+
+[`durl`](./bin/durl) is a little wrapper for curl, preset to go to
 `http://0.0.0.0:5000` and to send response to `json_pp`.
 - Main parameter is the path.
 - It can be followed by JSON data (remember to use quotes!) for POST and PUT
@@ -85,6 +100,6 @@ You then need to:
 - install dependencies with the right PIP;
 - point `python` to Python 3.8;
 - run Mongo standalone listening where Eve expects it;
-- run `gunicorn --reload -b 0.0.0.0:5000 app.app:app` from repo root;
+- run `gunicorn --max-requests=1 -b 0.0.0.0:5000 app.app:app` from repo root;
 - pray.
 

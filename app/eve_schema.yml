@@ -1,5 +1,5 @@
-users:
-    schema:
+unconfirmed_users: &basic_users
+    schema: &basic_users_schema
         email:
             type:      string
             minlength: 6
@@ -13,3 +13,10 @@ users:
         - GET
         - PUT
         - DELETE
+users:
+    <<: *basic_users
+    schema:
+        <<: *basic_users_schema
+        activation_time:
+            type:     datetime
+            required: True

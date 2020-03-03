@@ -4,6 +4,8 @@ MONGO_HOST      = "mongo"
 MONGO_PORT      =  27017
 MONGO_DBNAME    = "eve"
 
+HATEOAS = False
+
 # Eve schema is supposed to be read and written
 # by humans too. YAML, period.
 with open('app/eve_schema.yml') as f:
