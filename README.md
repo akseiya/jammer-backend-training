@@ -3,12 +3,13 @@
 This is the seed and prototype of REST-ful backend for Jammer.
 
 This is an [Eve][eve] app using a standard image for Mongo container
-and a morph of [Alex Pankov's Eve Dockerfile][alexdock] for its own box.
+and mutated offspring of [Alex Pankov's Eve Dockerfile][alexdock] for
+API box.
 
 [eve]: http://docs.python-eve.org/en/latest/index.html
 [alexdock]: https://github.com/alekspankov/docker-eve-python
 
-## Prerequisites
+# Prerequisites
 
 - [Docker](https://docs.docker.com/) 
 - [Docker Compose](https://docs.docker.com/compose/)
@@ -21,7 +22,7 @@ Sadly, if you were not previously a member of the `docker` group, there will be 
 If you're not on Ubuntu, you have WSL or some other bad things happen,
 check [special cases](#special).
 
-## RUN
+# RUN
 
 The repo includes **docker-compose.yml**. To use it run:
 
@@ -31,9 +32,25 @@ docker-compose up
 
 You can `curl http://0.0.0.0:5000/tadek` as soon as containers are started.
 App code volume is mounted live to the container and the app is run with 
-`gunicorn --reload` so code changes pop up immediately as well.
+`gunicorn --max-requests=1` so that each manual debugging request reloads code.
 
-## Changing dependencies
+## durl
+[durl](./bin/durl) is a little wrapper for curl, preset to go to
+`http://0.0.0.0:5000` and to send response to `json_pp`.
+- Main parameter is the path.
+- It can be followed by JSON data (remember to use quotes!) for POST and PUT
+- It can be preceded by 'put' or 'del' to send a PUT/DELETE request.
+#### Usage:
+```
+./bin/durl [put|delete] PATH [DATA]
+```
+
+
+ with path specified as first non-verb parameter
+and post data as last (json). It will try to use `json_pp` to print out
+the results.
+
+# Changing dependencies
 
 If you modify [dependencies](./requirements.txt), you need to rebuild the images:
 
@@ -53,15 +70,15 @@ with [dev dockerfile](./docker/Dockerfile.dev),as expected by the
 
 <a name="special"></a>
 
-## Everyone is a bit special
+# Everyone is a bit special
 
-### I'm on WSL, please help!
+## I'm on WSL, please help!
 
 You'll need Docker Desktop for Windows 10 and make it a remote docker server for your WSL. [Nick Janetakis knows how][nickdock].
 
 [nickdock]: https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly
 
-### No can tainer!
+## No can tainer!
 
 You then need to:
 - make sure you have Python 3.8 and its very own PIP;
