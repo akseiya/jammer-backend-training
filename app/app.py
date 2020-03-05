@@ -1,7 +1,11 @@
 import logging
 from eve import Eve
 app = Eve()
+<<<<<<< HEAD
 #kutaszenie
+=======
+# jebanie
+>>>>>>> 12f6a36f085197b45e53829a66addafdc58ec207
 @app.route('/tadek')
 def tadek():
     return 'Tadek dość chętnie i często ssie penisy.'
