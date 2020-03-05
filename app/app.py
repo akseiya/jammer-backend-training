@@ -1,7 +1,7 @@
 import logging
 from eve import Eve
 app = Eve()
-
+#kutaszenie
 @app.route('/tadek')
 def tadek():
     return 'Tadek dość chętnie i często ssie penisy.'
