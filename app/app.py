@@ -25,13 +25,13 @@ app = Eve()
 @app.route('/cokolwiek')
 
 # Function tadek - simple function that return string
-def tadek(a as string):
-#   return 'Tadek dość chętnie i często ssie penisy.'
-    return a
+def tadek():
+   return 'Tadek dość chętnie i często ssie penisy.'
 
 # wrapper - funkcja, ktora robi cos z wynikami innej funkcji
 print(tadek())
 
+# warunek, ktory mowi, ze plik ten zostal wczytany bezposrednio przez interpreter pythona
 if __name__ == '__main__':
     # This can only happen on a dev machine with no containers used
     app.run(host="0.0.0.0")
