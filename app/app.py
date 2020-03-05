@@ -1,14 +1,36 @@
+# import class library logging
 import logging
+# import class Eve from library eve
 from eve import Eve
+# create object app - instance of Eve
 app = Eve()
-<<<<<<< HEAD
-#kutaszenie
-=======
-# jebanie
->>>>>>> 12f6a36f085197b45e53829a66addafdc58ec207
-@app.route('/tadek')
-def tadek():
-    return 'Tadek dość chętnie i często ssie penisy.'
+# decorator
+
+# dekorator - czyli opakowanie funkcji w cos dodatkowego
+# .route - jest to metoda klasy Flask - która jest nadrzędną dla klasy Eve
+# czyli Eve dziedziczy po Flask (inherits)
+# wywoluje metode chuj z parametrem test
+# app.chuj('test')
+# wywoluje metode chuj z wynikiem funkcji tadek jako parametr
+# app.chuj(tadek())
+
+# !!! DEKORATOR !!!
+# @ oznacza dekorator - czyli metoda chuj obiektu app staje sie wrapperem dla funkcji zdefiniowanej bezposrednio za nia
+#@app.chuj('/tadek')
+# Function tadek - simple function that return string
+#def tadek():
+#    return 'Tadek dość chętnie i często ssie penisy.'
+
+# zebys mogl uzyc @ przed wywolaniem metody, metoda musi byc specjalnie napisana - jako dekorator/wrapper 
+@app.route('/cokolwiek')
+
+# Function tadek - simple function that return string
+def tadek(a as string):
+#   return 'Tadek dość chętnie i często ssie penisy.'
+    return a
+
+# wrapper - funkcja, ktora robi cos z wynikami innej funkcji
+print(tadek())
 
 if __name__ == '__main__':
     # This can only happen on a dev machine with no containers used
