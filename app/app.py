@@ -21,12 +21,35 @@ app = Eve()
 #def tadek():
 #    return 'Tadek dość chętnie i często ssie penisy.'
 
+#-------------------------------------------------------------------------------
 # zebys mogl uzyc @ przed wywolaniem metody, metoda musi byc specjalnie napisana - jako dekorator/wrapper 
 @app.route('/cokolwiek')
 
 # Function tadek - simple function that return string
 def tadek():
    return 'Tadek dość chętnie i często ssie penisy.'
+#-------------------------------------------------------------------------------
+# 
+#-------------------------------------------------------------------------------
+# zebys mogl uzyc @ przed wywolaniem metody, metoda musi byc specjalnie napisana - jako dekorator/wrapper 
+@app.route('/chuj')
+
+# Function tadek - simple function that return string
+def uriel():
+   return 'Uriel daje dupy.'
+#-------------------------------------------------------------------------------
+#    
+
+
+#-------------------------------------------------------------------------------
+# teraz funkcja z parametrami 
+@app.route('/gd')
+
+# Function tadek - simple function that return string
+def gd():
+   return 'Uriel daje dupy.'
+#-------------------------------------------------------------------------------
+#    
 
 # wrapper - funkcja, ktora robi cos z wynikami innej funkcji
 print(tadek())

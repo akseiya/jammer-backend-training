@@ -30,6 +30,6 @@ uri = root + path
 
 json = data or None
 
-req = verb(uri, json=json)
+resp = verb(uri, json=json)
 
-print(yaml.dump(req.json(), indent=4))
+print(yaml.dump(resp.json(), indent=4))
