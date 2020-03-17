@@ -20,3 +20,21 @@ users:
         activation_time:
             type:     datetime
             required: True
+chuje:
+    schema: 
+        grubosc:
+            type:     integer
+            required: True
+        dlugosc:
+            type: integer
+            required: True
+        kolor:
+            type: string
+            required: True
+    resource_methods:
+        - GET
+        - POST
+    item_methods:
+        - GET
+        - PUT
+        - DELETE    
